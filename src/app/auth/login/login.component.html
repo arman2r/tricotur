@@ -1,0 +1,21 @@
+<ion-grid [fixed]="true">
+  <ion-row class="ion-justify-content-center ion-align-items-center" style="height: 100vh">
+    <ion-col size="9" size-sm="5" size-lg="4">
+        <h1 class="ion-no-margin">Ingresar</h1>
+        <form class="ion-margin-top">
+          <ion-item fill="solid" class="ion-margin-bottom radius-border-input">
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="email" email></ion-input>
+            <ion-note slot="helper">Enter a valid email</ion-note>
+            <ion-note slot="error">Invalid email</ion-note>
+          </ion-item>
+          <ion-item class="ion-margin-top ion-margin-bottom radius-border-input">
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input type="password"></ion-input>
+          </ion-item>
+          <ion-button class="ion-margin-top ion-margin-bottom" expand="block" size="large" shape="round">Ingresar</ion-button>
+          <ion-button expand="block" fill="outline" class="ion-margin-top ion-margin-bottom" shape="round" size="large" [routerLink]="['/auth/register-panel/register']">Registrarme</ion-button>
+        </form>
+    </ion-col>
+  </ion-row>
+</ion-grid>
