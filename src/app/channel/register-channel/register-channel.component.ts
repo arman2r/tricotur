@@ -82,7 +82,8 @@ export class RegisterChannelComponent implements OnInit {
       this.photoService.addLogoChannel();
     } else if(result.action === 'delete') {
       console.log('eliminar imagen', result)
-      this.photoService.deletePicture(result.picture, result.position);
+      this.photoService.deleteLogo(result.picture, result.position);
+      this.photoService.logo = []
     } else if(result.action !== 'capture' && result.action !== 'delete' && result.action !== 'cancel') {
       console.log('buscar en galería')
       //await this.photoService.loadSaved();

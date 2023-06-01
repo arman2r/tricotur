@@ -39,7 +39,7 @@
           class="logo-profile"
           slot="start"
           color="dark"
-          (click)="uploadLogoEvent(1, null, null)"
+          (click)="uploadLogoEvent(1, photoService.logo !== undefined ? photoService.logo[0] : null, photoService.logo !== undefined ? 0 : null)"
         >
           <img
             *ngIf="photoService.logo.length <= 0"
