@@ -1,0 +1,167 @@
+<ion-header
+  [translucent]="true"
+  collapse="fade"
+  class="ion-no-border"
+  type="ios"
+>
+  <ion-toolbar type="ios">
+    <ion-buttons slot="start">
+      <ion-back-button type="ios"></ion-back-button>
+    </ion-buttons>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item lines="none" class="ion-no-padding">
+            <ion-thumbnail style="--size: 60px" slot="start">
+              <img
+                alt="Silhouette of mountains"
+                src="assets/tricotur-logo.png"
+              />
+            </ion-thumbnail>
+            <ion-text
+              ><h4 class="ion-no-margin">
+                <b>Crear canal</b>
+              </h4></ion-text
+            >
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-content>
+      <ion-item lines="none">
+        <input class="ion-hide" id="logoFile" #logoFile (change)="getImageInpt()" type="file" accept="image/*"/>
+        <ion-thumbnail
+          class="logo-profile"
+          slot="start"
+          color="dark"
+          (click)="uploadLogoEvent(1, null, null)"
+        >
+          <img
+            *ngIf="photoService.logo.length <= 0"
+            alt="Silhouette of mountains"
+            src="https://ionicframework.com/docs/img/demos/thumbnail.svg"
+            style="border-radius: 100px !important; opacity: 0.7"
+          />
+          <ion-icon
+            name="cloud-upload-outline"
+            color="light"
+            class="upload-icon-float"
+            *ngIf="photoService.logo.length <= 0"
+          ></ion-icon>
+          <ion-img
+            *ngFor="
+              let photo of photoService.logo;
+              let cnt = count;
+              let i = index
+            "
+            [ngClass]="photoService.logo.length >= 1 ? 'ion-show' : 'ion-hide'"
+            alt="Silhouette of mountains"
+            [src]="photo.webviewPath"
+            style="border-radius: 100px !important"
+          ></ion-img>
+        </ion-thumbnail>
+        <ion-label style="text-overflow: inherit; white-space: normal">
+          Como creador de contenido puedes subir una foto o logo que represente
+          tu canal.
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-row>
+    <form [formGroup]="channelCreateForm">
+      <ion-col size="12" class="ion-padding-start ion-padding-end">
+        <ion-card>
+          <ion-card-content>
+            <ion-item class="ion-margin-bottom">
+              <ion-label position="floating">Nombre del canal</ion-label>
+              <ion-input
+                formControlName="channelName"
+                placeholder="Enter text"
+                (keyup)="
+                  captureTextChannel(
+                    'channelName',
+                    channelCreateForm.controls['channelName'].value
+                  )
+                "
+              ></ion-input>
+            </ion-item>
+            <ion-item class="ion-margin-bottom">
+              <ion-label position="floating"
+                >Agregar ubicación precisa de operación</ion-label
+              >
+              <ion-input
+                formControlName="channelUbication"
+                placeholder="(Municipio, vereda, corregimiento)"
+                (keyup)="
+                  captureTextChannel(
+                    'operationZone',
+                    channelCreateForm.controls['channelUbication'].value
+                  )
+                "
+              ></ion-input>
+            </ion-item>
+          </ion-card-content>
+
+          <ion-item fill="outline" class="ion-margin-top text-area-content">
+            <ion-row style="width: 100%">
+              <ion-col size="12">
+                <ion-textarea
+                  aria-label="Descripción del canal"
+                  placeholder="Agrega una breve descripción de lo que pueden encontrar en tu canal"
+                  class="custom-textarea"
+                  [maxlength]="150"
+                  formControlName="channelDescription"
+                  (keyup)="
+                    captureTextChannel(
+                      'channelDescription',
+                      channelCreateForm.controls['channelDescription'].value
+                    )
+                  "
+                ></ion-textarea>
+              </ion-col>
+              <ion-col size="12">
+                <ion-text style="color: #fff; float: right">
+                  {{
+                    150 -
+                      channelCreateForm.controls["channelDescription"].value
+                        .length
+                  }}
+                </ion-text>
+              </ion-col>
+            </ion-row>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" class="ion-padding-start ion-padding-end">
+        <app-gallery></app-gallery>
+      </ion-col>
+      <ion-col size="12">
+        <app-theme-channel-creator></app-theme-channel-creator>
+      </ion-col>
+      <ion-col size="12" class="ion-padding-start ion-padding-end">
+        <app-social-media></app-social-media>
+      </ion-col>
+    </form>
+  </ion-row>
+</ion-content>
+
+<ion-footer [translucent]="true" collapse="fade">
+  <ion-grid class="margin-up">
+    <ion-row class="ion-justify-content-center">
+      <ion-fab>
+        <ion-fab-button size="large">
+          <h5><ion-text color="light">Continuar</ion-text></h5>
+          <ion-icon name="play"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+      <h5 class="outside-text">
+        <ion-text color="dark">Continuar y previsualizar</ion-text>
+      </h5>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

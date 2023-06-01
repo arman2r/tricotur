@@ -10,14 +10,18 @@ import { RegisterPanelPage } from './register-panel.page';
 import { RegisterBasicComponent } from './register-basic/register-basic.component';
 import { RegisterHomeComponent } from './register-home/register-home.component';
 import { RegisterGlobetrotterComponent } from './register-globetrotter/register-globetrotter.component';
+import { HttpClientModule } from '@angular/common/http';
+import { TourGuideComponent } from './tour-guide/tour-guide.component';
+import { ContentCreatorComponent } from './content-creator/content-creator.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RegisterPanelPageRoutingModule
+    RegisterPanelPageRoutingModule,
+    HttpClientModule
   ],
-  declarations: [RegisterPanelPage, RegisterBasicComponent, RegisterHomeComponent, RegisterGlobetrotterComponent]
+  declarations: [RegisterPanelPage, RegisterBasicComponent, RegisterHomeComponent, RegisterGlobetrotterComponent, TourGuideComponent, ContentCreatorComponent]
 })
 export class RegisterPanelPageModule {}

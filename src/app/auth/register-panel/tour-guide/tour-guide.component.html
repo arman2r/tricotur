@@ -1,3 +1,141 @@
-<p>
-  tour-guide works!
-</p>
+<ion-header [translucent]="true" collapse="fade" class="ion-no-border" type="ios">
+  <ion-toolbar type="ios">
+    <ion-buttons slot="start">
+      <ion-back-button type="ios"></ion-back-button>
+    </ion-buttons>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item lines="none" class="ion-no-padding">
+            <ion-thumbnail style="--size: 60px" slot="start">
+              <img
+                alt="Silhouette of mountains"
+                src="assets/tricotur-logo.png"
+              />
+            </ion-thumbnail>
+            <ion-text
+              ><h4 class="ion-no-margin">
+                Registrarme como guía turístico
+              </h4></ion-text
+            >
+            <ion-icon
+              class="ion-margin-start"
+              name="trail-sign"
+              slot="end"
+              style="font-size: 36px"
+              color="primary"
+            ></ion-icon>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row class="ion-justify-content-center ion-align-items-start">
+      <ion-col size="11" class="ion-margin-top">
+        <ion-text><h1 class="ion-no-margin">Falta poco.</h1>Queremos conocerte mejor para mejorar tu experiencia.<br>
+          </ion-text> <sub>recuerda que los campos marcados con <ion-text color="danger">*</ion-text> son obligatorios.</sub>
+        <ion-list>
+          <ion-item fill="outline" class="ion-margin-bottom">
+            <ion-label position="floating">Nombres <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input placeholder="Ingrese aquí su(s) nombre(s)"></ion-input>
+          </ion-item>
+          <ion-item fill="outline" class="ion-margin-bottom">
+            <ion-label position="floating">Apellido(s) <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input placeholder="Ingrese aquí su(s) nombre(s)"></ion-input>
+          </ion-item>
+          <ion-item fill="outline" class="ion-margin-bottom">
+            <ion-select interface="popover" placeholder="Tipo de documento *">
+              <ion-select-option value="CC"
+                >Cedula de Ciudadanía</ion-select-option
+              >
+              <ion-select-option value="TI"
+                >Tarjeta de identidad</ion-select-option
+              >
+              <ion-select-option value="NIT">Nit</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item fill="outline" class="ion-margin-bottom">
+            <ion-label position="floating">Numéro de documento <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input placeholder="Ingrese aquí su Documento"></ion-input>
+          </ion-item>
+          <ion-item fill="outline" class="ion-margin-bottom" id="open-modal">
+            <ion-label position="floating">Fecha de nacimiento <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input
+              [value]="date"
+              id="date"
+              placeholder="Ingrese aquí su Documento"
+              readonly="true"
+            ></ion-input>
+          </ion-item>
+          <ion-item lines="none" (click)="printCurrentPosition()">
+            <span>Agregar mi ubicación actual.</span>
+            <ion-icon name="locate" slot="end" color="primary"></ion-icon>
+          </ion-item>
+          <ion-item fill="outline" class="ion-margin-bottom" id="open-modal">
+            <ion-label position="floating">País de residencia <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input
+              placeholder="Ingrese aquí su País"
+              readonly="true"
+            ></ion-input>
+          </ion-item>
+          <ion-item fill="outline" class="ion-margin-bottom" id="open-modal">
+            <ion-label position="floating">Ciudad de residencia <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input
+              placeholder="Ingrese aquí su Ciudad"
+              readonly="true"
+            ></ion-input>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-checkbox slot="start"></ion-checkbox>
+            <ion-label>Acepto las politícas de privacidad <ion-text color="danger">*</ion-text></ion-label>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-checkbox slot="start"></ion-checkbox>
+            <ion-label>Acepto los términos y condiciones <ion-text color="danger">*</ion-text></ion-label>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-checkbox slot="start"></ion-checkbox>
+            <ion-label>Quiero recibir noticias y ofertas <ion-text color="danger">*</ion-text></ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-item class="ion-no-margin">
+    <ion-button expand="block" size="large" shape="round" class="ion-text-capitalize" style="width: 100%"
+      >Listo, enviar registro</ion-button
+    >
+  </ion-item>
+  <ion-item class="ion-no-margin">
+    <ion-button fill="clear" expand="block" size="large" shape="round" color="tertiary" class="ion-text-capitalize ion-margin-bottom" style="width: 100%"
+      >Saltar y completar despues</ion-button
+    >
+  </ion-item>
+  <ion-modal
+    #modal
+    trigger="open-modal"
+    [initialBreakpoint]="0.55"
+    [breakpoints]="[0, 0.55, 0.65]"
+  >
+    <ng-template class="ion-no-padding">
+      <ion-row class="ion-justify-content-center ion-align-items-start">
+        <ion-col size="12" class="ion-padding">
+          <ion-datetime
+            class="ion-margin-top"
+            size="block"
+            color="tertiary"
+            presentation="month-day-year"
+            [showDefaultButtons]="true"
+            doneText="Confirmar"
+            cancelText="Cancelar"
+            (ionChange)="dateTimeUpdated($event)"
+          ></ion-datetime>
+        </ion-col>
+      </ion-row>
+    </ng-template>
+  </ion-modal>
+</ion-content>
+

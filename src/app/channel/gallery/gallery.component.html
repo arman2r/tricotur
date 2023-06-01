@@ -1,0 +1,42 @@
+
+<ion-row class="ion-justify-content-between ion-align-items-center ion-padding-start ion-padding-end">
+    <p>Agregue algúnas fotos.</p>
+    <sub *ngIf="photoService.photos.length <= 3">Max 4.</sub>
+    <ion-icon color="success" *ngIf="photoService.photos.length >= 4" name="checkmark-outline"></ion-icon>
+</ion-row>
+<ion-content class="content-slider ion-padding-start ion-padding-end">
+    <ion-row class="ion-justify-content-start ion-no-padding" style="height: 100%;">
+      <ion-col size="3" *ngIf="photoService.photos.length <= 3">
+        <swiper class="no-border" #swiper [config]="config" style="width: 100%;">
+          <ng-template swiperSlide style="width: 100%;">
+            <ion-fab>
+              <ion-fab-button (click)="uploadImageEvent(1, null, null)">
+                <ion-icon name="add"></ion-icon>
+              </ion-fab-button>
+            </ion-fab>
+          </ng-template>
+        </swiper>
+      </ion-col>
+      <ion-col [size]="photoService.photos.length >= 4 ? 12:9" *ngIf="photoService.photos.length !== 0">
+        <swiper #swiper [config]="photoService.photos.length >= 4 ? configTwoEnd : configTwo" style="width: 100%;">
+          <ng-template
+            swiperSlide style="width: 100%;"
+            *ngFor="let photo of photoService.photos; let cnt = count; let i = index"
+          >
+            <ion-img [src]="photo.webviewPath"></ion-img>
+            <ion-fab>
+              <ion-fab-button (click)="uploadImageEvent(1, photo, i)">
+                <ion-icon name="remove"></ion-icon>
+              </ion-fab-button>
+            </ion-fab>
+          </ng-template>
+        </swiper>
+      </ion-col>
+    </ion-row>
+</ion-content>
+<p class="ion-padding-start ion-padding-end">
+  <sub>
+    Estas fotos serán usadas de portada para tu negocio y/o canal y la primera
+    imagen será la portada de entrada.
+  </sub>
+</p>

@@ -1,0 +1,46 @@
+
+  <ion-content
+    id="example-modal"
+    #modal
+    trigger="open-custom-dialog"
+    class="ion-padding"
+  >
+  <br>
+  <div class="ion-margin">
+    <ion-label class="ion-padding">Agregue una red social a su canal.</ion-label>
+  </div>
+    <div class="wrapper ion-padding">
+      <form [formGroup]="socialMediaModal">
+        <ion-list lines="none" class="ion-no-padding">
+          <ion-item>
+            <ion-select
+              interface="popover"
+              placeholder="Red social"
+              formControlName="socialMedia"
+            >
+              <ion-select-option *ngFor="let red of redSocial" [value]="red">{{red}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <br>
+          <ion-item fill="outline">
+            <ion-label position="floating">Nombre de la red social</ion-label>
+            <ion-input
+              formControlName="socialMediaName"
+              placeholder="@MiRedSocial, #MiRedSocial u otro.. "
+            ></ion-input>
+          </ion-item>
+          <br>
+          <ion-item fill="outline">
+            <ion-label position="floating">Url de la red social</ion-label>
+            <ion-input
+              formControlName="socialMediaUrl"
+              placeholder="Facebook.com, instagram.com, tiktok.com ..."
+            ></ion-input>
+          </ion-item>
+
+        </ion-list>
+        <ion-button [disabled]="!socialMediaModal.valid" expand="block" (click)="closeModal()">Guardar</ion-button>
+      </form>
+    </div>
+  </ion-content>
+
