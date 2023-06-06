@@ -1,0 +1,23 @@
+.content-slider{
+  height: 140px !important;
+}
+
+.content-slider,
+.content-slider .swiper-horizontal,
+.content-slider .swiper-horizontal .swiper-wrapper{
+  width: 100%;
+  height: 350px;
+}
+
+.swiper-slide{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border:1px solid rgba(0,0,0,.1);
+  border-radius: 30px;
+}
+
+.no-border .swiper-slide{
+  border:none !important
+}

@@ -13,6 +13,7 @@ import { RegisterGlobetrotterComponent } from './register-globetrotter/register-
 import { HttpClientModule } from '@angular/common/http';
 import { TourGuideComponent } from './tour-guide/tour-guide.component';
 import { ContentCreatorComponent } from './content-creator/content-creator.component';
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { ContentCreatorComponent } from './content-creator/content-creator.compo
     FormsModule,
     IonicModule,
     RegisterPanelPageRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    SwiperModule
   ],
   declarations: [RegisterPanelPage, RegisterBasicComponent, RegisterHomeComponent, RegisterGlobetrotterComponent, TourGuideComponent, ContentCreatorComponent]
 })

@@ -1,4 +1,9 @@
-<ion-header [translucent]="true" collapse="fade" class="ion-no-border" type="ios">
+<ion-header
+  [translucent]="true"
+  collapse="fade"
+  class="ion-no-border"
+  type="ios"
+>
   <ion-toolbar type="ios">
     <ion-buttons slot="start">
       <ion-back-button type="ios"></ion-back-button>
@@ -31,82 +36,177 @@
     </ion-grid>
   </ion-toolbar>
 </ion-header>
+
 <ion-content [fullscreen]="true">
+
   <ion-grid>
     <ion-row class="ion-justify-content-center ion-align-items-start">
       <ion-col size="11" class="ion-margin-top">
-        <ion-text><h1 class="ion-no-margin">Falta poco.</h1>Queremos conocerte mejor para mejorar tu experiencia.<br>
-          </ion-text> <sub>recuerda que los campos marcados con <ion-text color="danger">*</ion-text> son obligatorios.</sub>
-        <ion-list>
-          <ion-item fill="outline" class="ion-margin-bottom">
-            <ion-label position="floating">Nombres <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input placeholder="Ingrese aquí su(s) nombre(s)"></ion-input>
-          </ion-item>
-          <ion-item fill="outline" class="ion-margin-bottom">
-            <ion-label position="floating">Apellido(s) <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input placeholder="Ingrese aquí su(s) nombre(s)"></ion-input>
-          </ion-item>
-          <ion-item fill="outline" class="ion-margin-bottom">
-            <ion-select interface="popover" placeholder="Tipo de documento *">
-              <ion-select-option value="CC"
-                >Cedula de Ciudadanía</ion-select-option
-              >
-              <ion-select-option value="TI"
-                >Tarjeta de identidad</ion-select-option
-              >
-              <ion-select-option value="NIT">Nit</ion-select-option>
-            </ion-select>
-          </ion-item>
-          <ion-item fill="outline" class="ion-margin-bottom">
-            <ion-label position="floating">Numéro de documento <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input placeholder="Ingrese aquí su Documento"></ion-input>
-          </ion-item>
-          <ion-item fill="outline" class="ion-margin-bottom" id="open-modal">
-            <ion-label position="floating">Fecha de nacimiento <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input
-              [value]="date"
-              id="date"
-              placeholder="Ingrese aquí su Documento"
-              readonly="true"
-            ></ion-input>
-          </ion-item>
-          <ion-item lines="none" (click)="printCurrentPosition()">
-            <span>Agregar mi ubicación actual.</span>
-            <ion-icon name="locate" slot="end" color="primary"></ion-icon>
-          </ion-item>
-          <ion-item fill="outline" class="ion-margin-bottom" id="open-modal">
-            <ion-label position="floating">País de residencia <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input
-              placeholder="Ingrese aquí su País"
-              readonly="true"
-            ></ion-input>
-          </ion-item>
-          <ion-item fill="outline" class="ion-margin-bottom" id="open-modal">
-            <ion-label position="floating">Ciudad de residencia <ion-text color="danger">*</ion-text></ion-label>
-            <ion-input
-              placeholder="Ingrese aquí su Ciudad"
-              readonly="true"
-            ></ion-input>
-          </ion-item>
-          <ion-item lines="none">
-            <ion-checkbox slot="start"></ion-checkbox>
-            <ion-label>Acepto las politícas de privacidad <ion-text color="danger">*</ion-text></ion-label>
-          </ion-item>
-          <ion-item lines="none">
-            <ion-checkbox slot="start"></ion-checkbox>
-            <ion-label>Acepto los términos y condiciones <ion-text color="danger">*</ion-text></ion-label>
-          </ion-item>
-          <ion-item lines="none">
-            <ion-checkbox slot="start"></ion-checkbox>
-            <ion-label>Quiero recibir noticias y ofertas <ion-text color="danger">*</ion-text></ion-label>
-          </ion-item>
-        </ion-list>
+        <ion-text
+          ><h1 class="ion-no-margin">Falta poco.</h1>
+          Queremos conocerte para mejorar tu experiencia.<br />
+        </ion-text>
+        <sub
+          >recuerda que los campos marcados con
+          <ion-text color="danger">*</ion-text> son obligatorios.</sub
+        >
+        <swiper class="ion-margin-top ion-margin-bottom" #swiper [config]="configSwipper" style="width: 100%">
+          <ng-template swiperSlide style="width: 100%;">
+            <ion-card>
+              <ion-card-content>
+                <ion-list>
+                  <ion-item fill="outline" class="ion-margin-bottom">
+                    <ion-label position="floating"
+                      >Nombres <ion-text color="danger">*</ion-text></ion-label
+                    >
+                    <ion-input
+                      placeholder="Ingrese aquí su(s) nombre(s)"
+                    ></ion-input>
+                  </ion-item>
+                  <ion-item fill="outline" class="ion-margin-bottom">
+                    <ion-label position="floating"
+                      >Apellido(s) <ion-text color="danger">*</ion-text></ion-label
+                    >
+                    <ion-input
+                      placeholder="Ingrese aquí su(s) nombre(s)"
+                    ></ion-input>
+                  </ion-item>
+                  <ion-item fill="outline" class="ion-margin-bottom">
+                    <ion-select
+                      interface="popover"
+                      placeholder="Tipo de documento *"
+                    >
+                      <ion-select-option value="CC"
+                        >Cedula de Ciudadanía</ion-select-option
+                      >
+                      <ion-select-option value="TI"
+                        >Tarjeta de identidad</ion-select-option
+                      >
+                      <ion-select-option value="NIT">Nit</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                  <ion-item fill="outline" class="ion-margin-bottom">
+                    <ion-label position="floating"
+                      >Numéro de documento
+                      <ion-text color="danger">*</ion-text></ion-label
+                    >
+                    <ion-input placeholder="Ingrese aquí su Documento"></ion-input>
+                  </ion-item>
+                  <ion-item
+                    fill="outline"
+                    class="ion-margin-bottom"
+                    id="open-modal"
+                  >
+                    <ion-label position="floating"
+                      >Fecha de nacimiento
+                      <ion-text color="danger">*</ion-text></ion-label
+                    >
+                    <ion-input
+                      [value]="date"
+                      id="date"
+                      placeholder="Ingrese aquí su Documento"
+                      readonly="true"
+                    ></ion-input>
+                  </ion-item>
+                </ion-list>
+              </ion-card-content>
+            </ion-card>
+            <ion-button expand="block"
+            size="large"
+            shape="round"
+            class="ion-text-capitalize ion-margin-top swiper-slide-next"
+            style="width: 100%" (click)="continueSwip(2)">Continuar</ion-button>
+          </ng-template>
+          <ng-template swiperSlide style="width: 100%;">
+            <ion-card>
+              <ion-card-content>
+                <ion-list>
+                  <ion-item lines="none" (click)="printCurrentPosition()">
+                    <span>Agregar mi ubicación actual.</span>
+                    <ion-icon name="locate" slot="end" color="primary"></ion-icon>
+                  </ion-item>
+                  <ion-item
+                    fill="outline"
+                    class="ion-margin-bottom"
+                    id="open-modal"
+                  >
+                    <ion-label position="floating"
+                      >País de residencia
+                      <ion-text color="danger">*</ion-text></ion-label
+                    >
+                    <ion-input
+                      placeholder="Ingrese aquí su País"
+                      readonly="true"
+                    ></ion-input>
+                  </ion-item>
+                  <ion-item
+                    fill="outline"
+                    class="ion-margin-bottom"
+                    id="open-modal"
+                  >
+                    <ion-label position="floating"
+                      >Ciudad de residencia
+                      <ion-text color="danger">*</ion-text></ion-label
+                    >
+                    <ion-input
+                      placeholder="Ingrese aquí su Ciudad"
+                      readonly="true"
+                    ></ion-input>
+                  </ion-item>
+                </ion-list>
+              </ion-card-content>
+            </ion-card>
+            <ion-button expand="block"
+            size="large"
+            shape="round"
+            class="ion-text-capitalize ion-margin-top"
+            style="width: 100%" (click)="continueSwip(2)">Continuar</ion-button>
+          </ng-template>
+
+          <ng-template swiperSlide style="width: 100%;">
+            <ion-card>
+              <ion-card-content>
+                <ion-list>
+                  <ion-item lines="none">
+                    <ion-checkbox slot="start"></ion-checkbox>
+                    <ion-label
+                      >Acepto las politícas de privacidad
+                      <ion-text color="danger">*</ion-text></ion-label
+                    >
+                  </ion-item>
+                  <ion-item lines="none">
+                    <ion-checkbox slot="start"></ion-checkbox>
+                    <ion-label
+                      >Acepto los términos y condiciones
+                      <ion-text color="danger">*</ion-text></ion-label
+                    >
+                  </ion-item>
+                  <ion-item lines="none">
+                    <ion-checkbox slot="start"></ion-checkbox>
+                    <ion-label
+                      >Quiero recibir noticias y ofertas
+                      <ion-text color="danger">*</ion-text></ion-label
+                    >
+                  </ion-item>
+                </ion-list>
+              </ion-card-content>
+            </ion-card>
+          </ng-template>
+        </swiper>
+
+
       </ion-col>
     </ion-row>
   </ion-grid>
   <ion-item class="ion-no-margin">
-    <ion-button expand="block" size="large" shape="round" class="ion-text-capitalize" style="width: 100%"
-    [routerLink]="['/channel']">Listo, enviar registro</ion-button
+    <ion-button
+      expand="block"
+      size="large"
+      shape="round"
+      class="ion-text-capitalize ion-hide"
+      style="width: 100%"
+      [routerLink]="['/channel']"
+      >Listo, enviar registro</ion-button
     >
   </ion-item>
   <ion-modal
@@ -133,4 +233,3 @@
     </ng-template>
   </ion-modal>
 </ion-content>
-

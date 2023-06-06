@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Geolocation } from '@capacitor/geolocation';
 import { format, parseISO } from 'date-fns';
 import { CurrentLocationService } from 'src/app/services/current-location.service';
+import { SwiperOptions } from 'swiper';
+import { SwiperComponent } from 'swiper/angular';
 
 @Component({
   selector: 'app-content-creator',
@@ -9,7 +11,12 @@ import { CurrentLocationService } from 'src/app/services/current-location.servic
   styleUrls: ['./content-creator.component.scss'],
 })
 export class ContentCreatorComponent implements OnInit {
-
+  @ViewChild('swiper') swiper: any = SwiperComponent
+  configSwipper: SwiperOptions = {
+    slidesPerView: 1,
+    spaceBetween:8,
+    centeredSlides: true
+  }
   date: any
   constructor(private locationService: CurrentLocationService) {
     //this.date = new Date().toDateString();
@@ -42,6 +49,16 @@ export class ContentCreatorComponent implements OnInit {
     } catch (error) {
       console.log(error)
     }
+  }
+
+  ngAfterContentChecked() {
+    if(this.swiper){
+      this.swiper.updateSwiper
+    }
+  }
+
+  continueSwip(n: number) {
+    console.log(this.swiper)
   }
 
 }
