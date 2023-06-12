@@ -37,11 +37,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-
-  <ion-grid>
-    <ion-row class="ion-justify-content-center ion-align-items-start">
-      <ion-col size="11" class="ion-margin-top">
+<ion-content>
+  <ion-grid style="height: 100%">
+    <ion-row
+      class="ion-justify-content-center ion-align-items-end"
+      style="height: 100%"
+    >
+      <ion-col size="11">
         <ion-text
           ><h1 class="ion-no-margin">Falta poco.</h1>
           Queremos conocerte para mejorar tu experiencia.<br />
@@ -50,12 +52,23 @@
           >recuerda que los campos marcados con
           <ion-text color="danger">*</ion-text> son obligatorios.</sub
         >
-        <swiper class="ion-margin-top ion-margin-bottom" #swiper [config]="configSwipper" style="width: 100%">
-          <ng-template swiperSlide style="width: 100%;">
-            <ion-card>
+      </ion-col>
+      <ion-col size="12">
+        <swiper
+          class="ion-margin-top ion-margin-bottom"
+          #swiper
+          [config]="configSwipper"
+          style="width: 100%"
+        >
+          <ng-template swiperSlide style="width: 100%">
+            <ion-card class="no-shadow">
               <ion-card-content>
                 <ion-list>
-                  <ion-item fill="outline" class="ion-margin-bottom">
+                  <ion-item
+                    fill="outline"
+                    class="ion-margin-bottom"
+                    shape="round"
+                  >
                     <ion-label position="floating"
                       >Nombres <ion-text color="danger">*</ion-text></ion-label
                     >
@@ -63,18 +76,27 @@
                       placeholder="Ingrese aquí su(s) nombre(s)"
                     ></ion-input>
                   </ion-item>
-                  <ion-item fill="outline" class="ion-margin-bottom">
+                  <ion-item
+                    fill="outline"
+                    class="ion-margin-bottom"
+                    shape="round"
+                  >
                     <ion-label position="floating"
-                      >Apellido(s) <ion-text color="danger">*</ion-text></ion-label
+                      >Apellido(s)
+                      <ion-text color="danger">*</ion-text></ion-label
                     >
                     <ion-input
                       placeholder="Ingrese aquí su(s) nombre(s)"
                     ></ion-input>
                   </ion-item>
-                  <ion-item fill="outline" class="ion-margin-bottom">
+                  <ion-item
+                    fill="outline"
+                    class="ion-margin-bottom"
+                    shape="round"
+                  >
                     <ion-select
-                      interface="popover"
                       placeholder="Tipo de documento *"
+                      style="padding:20px 0"
                     >
                       <ion-select-option value="CC"
                         >Cedula de Ciudadanía</ion-select-option
@@ -85,17 +107,24 @@
                       <ion-select-option value="NIT">Nit</ion-select-option>
                     </ion-select>
                   </ion-item>
-                  <ion-item fill="outline" class="ion-margin-bottom">
+                  <ion-item
+                    fill="outline"
+                    class="ion-margin-bottom"
+                    shape="round"
+                  >
                     <ion-label position="floating"
                       >Numéro de documento
                       <ion-text color="danger">*</ion-text></ion-label
                     >
-                    <ion-input placeholder="Ingrese aquí su Documento"></ion-input>
+                    <ion-input
+                      placeholder="Ingrese aquí su Documento"
+                    ></ion-input>
                   </ion-item>
                   <ion-item
                     fill="outline"
                     class="ion-margin-bottom"
                     id="open-modal"
+                    shape="round"
                   >
                     <ion-label position="floating"
                       >Fecha de nacimiento
@@ -108,27 +137,28 @@
                       readonly="true"
                     ></ion-input>
                   </ion-item>
+
                 </ion-list>
               </ion-card-content>
             </ion-card>
-            <ion-button expand="block"
-            size="large"
-            shape="round"
-            class="ion-text-capitalize ion-margin-top swiper-slide-next"
-            style="width: 100%" (click)="continueSwip(2)">Continuar</ion-button>
           </ng-template>
-          <ng-template swiperSlide style="width: 100%;">
-            <ion-card>
+          <ng-template swiperSlide style="width: 100%">
+            <ion-card class="no-shadow">
               <ion-card-content>
                 <ion-list>
                   <ion-item lines="none" (click)="printCurrentPosition()">
                     <span>Agregar mi ubicación actual.</span>
-                    <ion-icon name="locate" slot="end" color="primary"></ion-icon>
+                    <ion-icon
+                      name="locate"
+                      slot="end"
+                      color="primary"
+                    ></ion-icon>
                   </ion-item>
                   <ion-item
                     fill="outline"
                     class="ion-margin-bottom"
                     id="open-modal"
+                    shape="round"
                   >
                     <ion-label position="floating"
                       >País de residencia
@@ -143,6 +173,7 @@
                     fill="outline"
                     class="ion-margin-bottom"
                     id="open-modal"
+                    shape="round"
                   >
                     <ion-label position="floating"
                       >Ciudad de residencia
@@ -156,32 +187,27 @@
                 </ion-list>
               </ion-card-content>
             </ion-card>
-            <ion-button expand="block"
-            size="large"
-            shape="round"
-            class="ion-text-capitalize ion-margin-top"
-            style="width: 100%" (click)="continueSwip(2)">Continuar</ion-button>
           </ng-template>
 
-          <ng-template swiperSlide style="width: 100%;">
-            <ion-card>
+          <ng-template swiperSlide style="width: 100%">
+            <ion-card class="no-shadow">
               <ion-card-content>
                 <ion-list>
-                  <ion-item lines="none">
+                  <ion-item lines="none" shape="round">
                     <ion-checkbox slot="start"></ion-checkbox>
                     <ion-label
                       >Acepto las politícas de privacidad
                       <ion-text color="danger">*</ion-text></ion-label
                     >
                   </ion-item>
-                  <ion-item lines="none">
+                  <ion-item lines="none" shape="round">
                     <ion-checkbox slot="start"></ion-checkbox>
                     <ion-label
                       >Acepto los términos y condiciones
                       <ion-text color="danger">*</ion-text></ion-label
                     >
                   </ion-item>
-                  <ion-item lines="none">
+                  <ion-item lines="none" shape="round">
                     <ion-checkbox slot="start"></ion-checkbox>
                     <ion-label
                       >Quiero recibir noticias y ofertas
@@ -193,8 +219,31 @@
             </ion-card>
           </ng-template>
         </swiper>
-
-
+      </ion-col>
+      <ion-col size="11">
+        <ion-row>
+          <ion-col size="3">
+            <ion-button
+              fill="clear"
+              expand="block"
+              size="large"
+              shape="round"
+              (click)="prevSlide()"
+              class="ion-text-capitalize swiper-slide-next"
+              ><ion-icon name="chevron-back-outline"></ion-icon
+            ></ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button
+              expand="block"
+              size="large"
+              shape="round"
+              (click)="nextSlide()"
+              class="ion-text-capitalize swiper-slide-next"
+              >Continuar</ion-button
+            >
+          </ion-col>
+        </ion-row>
       </ion-col>
     </ion-row>
   </ion-grid>

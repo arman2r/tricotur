@@ -11,11 +11,13 @@ import { SwiperComponent } from 'swiper/angular';
   styleUrls: ['./content-creator.component.scss'],
 })
 export class ContentCreatorComponent implements OnInit {
-  @ViewChild('swiper') swiper: any = SwiperComponent
+  @ViewChild('swiper', {static: false}) swiper: any = SwiperComponent
+
   configSwipper: SwiperOptions = {
     slidesPerView: 1,
     spaceBetween:8,
-    centeredSlides: true
+    centeredSlides: true,
+    allowTouchMove: false
   }
   date: any
   constructor(private locationService: CurrentLocationService) {
@@ -57,8 +59,12 @@ export class ContentCreatorComponent implements OnInit {
     }
   }
 
-  continueSwip(n: number) {
-    console.log(this.swiper)
+  nextSlide() {
+    this.swiper.swiperRef.slideNext(500)
+  }
+
+  prevSlide() {
+    this.swiper.swiperRef.slidePrev(500)
   }
 
 }

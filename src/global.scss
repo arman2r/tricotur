@@ -64,3 +64,6 @@ select:-webkit-autofill:focus {
   text-shadow: 1px 1px 1px #000000;
 }
 
+.no-shadow{
+  box-shadow: none !important;
+}
