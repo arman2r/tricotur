@@ -38,7 +38,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid style="height: 100%">
+  <ion-grid>
     <ion-row
       class="ion-justify-content-center ion-align-items-end"
       style="height: 100%"
@@ -233,14 +233,15 @@
               ><ion-icon name="chevron-back-outline"></ion-icon
             ></ion-button>
           </ion-col>
-          <ion-col>
+          <ion-col size="9">
             <ion-button
+              #btnNextSlide
               expand="block"
               size="large"
               shape="round"
               (click)="nextSlide()"
               class="ion-text-capitalize swiper-slide-next"
-              >Continuar</ion-button
+              ><sub>{{textButton}}</sub></ion-button
             >
           </ion-col>
         </ion-row>

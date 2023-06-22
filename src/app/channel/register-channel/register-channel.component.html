@@ -73,7 +73,7 @@
     </ion-card-content>
   </ion-card>
   <ion-row>
-    <form [formGroup]="channelCreateForm">
+    <form style="width: 100%;" [formGroup]="channelCreateForm">
       <ion-col size="12" class="ion-padding-start ion-padding-end">
         <ion-card>
           <ion-card-content>
@@ -112,7 +112,7 @@
               <ion-col size="12">
                 <ion-textarea
                   aria-label="Descripción del canal"
-                  placeholder="Agrega una breve descripción de lo que pueden encontrar en tu canal"
+                  placeholder="Agrega una breve descripción de lo que pueden encontrar en tu canal: Viajes, experiencias, tienda online."
                   class="custom-textarea"
                   [maxlength]="150"
                   formControlName="channelDescription"

@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Geolocation } from '@capacitor/geolocation';
+import { IonButton } from '@ionic/angular';
 import { format, parseISO } from 'date-fns';
 import { CurrentLocationService } from 'src/app/services/current-location.service';
 import { SwiperOptions } from 'swiper';
@@ -12,6 +14,8 @@ import { SwiperComponent } from 'swiper/angular';
 })
 export class ContentCreatorComponent implements OnInit {
   @ViewChild('swiper', {static: false}) swiper: any = SwiperComponent
+  enSlide = false;
+  textButton: string = 'Continuar';
 
   configSwipper: SwiperOptions = {
     slidesPerView: 1,
@@ -20,7 +24,7 @@ export class ContentCreatorComponent implements OnInit {
     allowTouchMove: false
   }
   date: any
-  constructor(private locationService: CurrentLocationService) {
+  constructor(private locationService: CurrentLocationService, private router: Router) {
     //this.date = new Date().toDateString();
   }
 
@@ -60,11 +64,26 @@ export class ContentCreatorComponent implements OnInit {
   }
 
   nextSlide() {
-    this.swiper.swiperRef.slideNext(500)
+    console.log(this.swiper.swiperRef)
+    if(this.swiper.swiperRef.isEnd == false && this.textButton == 'Continuar'){
+      this.textButton = 'Continuar'
+      this.swiper.swiperRef.slideNext(500)
+      console.log('es fin', this.swiper.swiperRef.isEnd)
+      if(this.swiper.swiperRef.isEnd == true) {
+        this.textButton = 'Listo, enviar registro';
+      }
+    } else {
+      this.router.navigate(['/channel'])
+    }
+
   }
 
   prevSlide() {
     this.swiper.swiperRef.slidePrev(500)
+    if(this.swiper.swiperRef.isEnd == false){
+      this.textButton = 'Continuar'
+
+    }
   }
 
 }
