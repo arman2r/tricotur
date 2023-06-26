@@ -23,6 +23,7 @@
     </ion-col>
     <ion-col
       size="3"
+      sizeSm="1"
       style="display: flex"
       class="ion-align-items-center ion-justify-content-center ion-no-padding"
       style="padding-right: 6px"
@@ -34,13 +35,13 @@
         ><ion-icon size="large" name="add-circle"></ion-icon
       ></ion-button>
     </ion-col>
-    <ion-col size="9" class="ion-no-padding">
+    <ion-col size="9" sizeSm="11" class="ion-no-padding">
       <swiper
         #swiper
         [config]="configSwipperChannel"
         style="width: 100%; height: 100%"
       >
-        <ng-template swiperSlide style="width: 100%; height: 100%">
+        <ng-template swiperSlide>
           <ion-button
             fill="outline"
             class="ion-no-margin ion-no-padding"
@@ -222,7 +223,10 @@
         </ng-template>
       </swiper>
     </ion-col>
-
+    <ion-col size="12" style="display: flex" class="ion-align-items-center ion-margin-top"
+      ><ion-icon name="thumbs-up" style="margin-right: 10px"></ion-icon>
+      Planes destacados
+    </ion-col>
     <ion-col
       size="12"
       class="ion-no-padding ion-padding-top ion-padding-bottom"
@@ -233,89 +237,314 @@
         [config]="configSwipperSliderChannel"
         style="width: 100%; height: 100%"
       >
-        <ng-template swiperSlide style="width: 100%; height: 100%">
+        <ng-template swiperSlide>
           <img
             src="../../.././assets/images/canotaje-peru-turismo-aventura.jpg"
           />
         </ng-template>
-        <ng-template swiperSlide style="width: 100%; height: 100%">
+        <ng-template swiperSlide>
           <img src="../../.././assets/images/Confatolima-700x357.jpg" />
         </ng-template>
-        <ng-template swiperSlide style="width: 100%; height: 100%">
+        <ng-template swiperSlide>
           <img
             src="../../.././assets/images/ibague_nevado_tolima_colombia_travel.jpg"
           />
         </ng-template>
-        <ng-template swiperSlide style="width: 100%; height: 100%">
+        <ng-template swiperSlide>
           <img src="../../.././assets/images/slider_rappel.jpg" />
         </ng-template>
-        <ng-template swiperSlide style="width: 100%; height: 100%">
+        <ng-template swiperSlide>
           <img src="../../.././assets/images/Villa-luz.jpg" />
         </ng-template>
       </swiper>
     </ion-col>
 
-    <ion-col size="12" class="ion-padding-top">
-      <ion-text>Planes turísticos</ion-text>
+    <ion-col size="12" class="ion-margin-top ion-margin-bottom ion-no-padding">
+      <div class="ion-margin-bottom">
+        <ion-text>Planes turísticos</ion-text>
+      </div>
       <swiper
         #swiper
         [config]="configSwipperProdAndPlains"
-        class="product-planes-carousel ion-margin-top"
-        style="width: 100%; height: 100%"
+        class="product-planes-carousel"
+        style="width: 100%"
       >
-        <ng-template swiperSlide style="width: 100%; height: 100%">
-          <ion-card class="ion-no-margin">
+        <ng-template swiperSlide>
+          <ion-card
+            class="ion-no-margin ion-margin-bottom"
+            style="height: 100%"
+          >
             <img
               alt="Silhouette of mountains"
               src="https://ionicframework.com/docs/img/demos/card-media.png"
             />
-
-            <ion-card-header>
-              <ion-card-title>Santa marta</ion-card-title>
-              <ion-card-subtitle>Sol y playa x $799.000</ion-card-subtitle>
-            </ion-card-header>
+            <div class="content-card-channel">
+              <ion-card-header class="ion-no-padding">
+                <ion-card-title
+                  ><ion-button size="small" shape="round"
+                    ><span class="content-text">Santa marta</span></ion-button
+                  ></ion-card-title
+                >
+                <div class="attrs">
+                  <div>
+                    <ion-button size="small" shape="round"
+                      ><ion-icon name="paw"></ion-icon> x1</ion-button
+                    ><ion-button size="small" shape="round"
+                      ><ion-icon name="people"></ion-icon> x2</ion-button
+                    ><ion-button size="small" shape="round"
+                      ><ion-icon name="share-social"></ion-icon
+                    ></ion-button>
+                  </div>
+                  <ion-button size="small" shape="round">$699.900</ion-button>
+                </div>
+              </ion-card-header>
+            </div>
           </ion-card>
         </ng-template>
-        <ng-template swiperSlide style="width: 100%; height: 100%">
-          <ion-card class="ion-no-margin">
+        <ng-template swiperSlide>
+          <ion-card
+            class="ion-no-margin ion-margin-bottom"
+            style="height: 100%"
+          >
             <img
               alt="Silhouette of mountains"
               src="https://ionicframework.com/docs/img/demos/card-media.png"
             />
-
-            <ion-card-header>
-              <ion-card-title>Santa marta</ion-card-title>
-              <ion-card-subtitle>Sol y playa x $799.000</ion-card-subtitle>
-            </ion-card-header>
+            <div class="content-card-channel">
+              <ion-card-header class="ion-no-padding">
+                <ion-card-title
+                  ><ion-button size="small" shape="round"
+                    ><span class="content-text">Cartagena</span></ion-button
+                  ></ion-card-title
+                >
+                <div class="attrs">
+                  <div>
+                    <ion-button size="small" shape="round"
+                      ><ion-icon name="paw"></ion-icon> x1</ion-button
+                    ><ion-button size="small" shape="round"
+                      ><ion-icon name="people"></ion-icon> x2</ion-button
+                    ><ion-button size="small" shape="round"
+                      ><ion-icon name="share-social"></ion-icon
+                    ></ion-button>
+                  </div>
+                  <ion-button size="small" shape="round">$699.900</ion-button>
+                </div>
+              </ion-card-header>
+            </div>
           </ion-card>
         </ng-template>
-        <ng-template swiperSlide style="width: 100%; height: 100%">
-          <ion-card class="ion-no-margin">
+        <ng-template swiperSlide>
+          <ion-card
+            class="ion-no-margin ion-margin-bottom"
+            style="height: 100%"
+          >
             <img
               alt="Silhouette of mountains"
               src="https://ionicframework.com/docs/img/demos/card-media.png"
             />
-
-            <ion-card-header>
-              <ion-card-title>Santa marta</ion-card-title>
-              <ion-card-subtitle>Sol y playa x $799.000</ion-card-subtitle>
-            </ion-card-header>
+            <div class="content-card-channel">
+              <ion-card-header class="ion-no-padding">
+                <ion-card-title
+                  ><ion-button size="small" shape="round"
+                    ><span class="content-text">San andres</span></ion-button
+                  ></ion-card-title
+                >
+                <div class="attrs">
+                  <div>
+                    <ion-button size="small" shape="round"
+                      ><ion-icon name="paw"></ion-icon> x1</ion-button
+                    ><ion-button size="small" shape="round"
+                      ><ion-icon name="people"></ion-icon> x2</ion-button
+                    ><ion-button size="small" shape="round"
+                      ><ion-icon name="share-social"></ion-icon
+                    ></ion-button>
+                  </div>
+                  <ion-button size="small" shape="round">$699.900</ion-button>
+                </div>
+              </ion-card-header>
+            </div>
           </ion-card>
         </ng-template>
-        <ng-template swiperSlide style="width: 100%; height: 100%">
-          <ion-card class="ion-no-margin">
+        <ng-template swiperSlide>
+          <ion-card
+            class="ion-no-margin ion-margin-bottom"
+            style="height: 100%"
+          >
             <img
               alt="Silhouette of mountains"
               src="https://ionicframework.com/docs/img/demos/card-media.png"
             />
+            <div class="content-card-channel">
+              <ion-card-header class="ion-no-padding">
+                <ion-card-title
+                  ><ion-button size="small" shape="round"
+                    ><span class="content-text">Playa blanca</span></ion-button
+                  ></ion-card-title
+                >
+                <div class="attrs">
+                  <div>
+                    <ion-button size="small" shape="round"
+                      ><ion-icon name="paw"></ion-icon> x1</ion-button
+                    ><ion-button size="small" shape="round"
+                      ><ion-icon name="people"></ion-icon> x2</ion-button
+                    ><ion-button size="small" shape="round"
+                      ><ion-icon name="share-social"></ion-icon
+                    ></ion-button>
+                  </div>
+                  <ion-button size="small" shape="round">$699.900</ion-button>
+                </div>
+              </ion-card-header>
+            </div>
+          </ion-card>
+        </ng-template>
+      </swiper>
+    </ion-col>
 
-            <ion-card-header>
-              <ion-card-title>Santa marta</ion-card-title>
-              <ion-card-subtitle>Sol y playa x $799.000</ion-card-subtitle>
-            </ion-card-header>
+    <ion-col size="12" class="ion-margin-top ion-margin-bottom ion-no-padding">
+      <div class="ion-margin-bottom"><ion-text>Productos</ion-text></div>
+      <swiper
+        #swiper
+        [config]="configSwipperProdAndPlains"
+        class="product-planes-carousel"
+        style="width: 100%"
+      >
+        <ng-template swiperSlide>
+          <ion-card
+            class="ion-no-margin ion-margin-bottom"
+            style="height: 100%"
+          >
+            <img
+              alt="Silhouette of mountains"
+              src="https://ionicframework.com/docs/img/demos/card-media.png"
+            />
+            <div class="content-card-channel">
+              <ion-card-header class="ion-no-padding">
+                <ion-card-title
+                  ><ion-button size="small" shape="round"
+                    ><span class="content-text"
+                      >Sandalias livianas</span
+                    ></ion-button
+                  ></ion-card-title
+                >
+                <div class="attrs">
+                  <div style="width: 100%">
+                    <ion-button size="small" shape="round"
+                      ><ion-icon name="share-social"></ion-icon
+                    ></ion-button>
+                  </div>
+                  <ion-button size="small" shape="round">$69.900</ion-button>
+                </div>
+              </ion-card-header>
+            </div>
+          </ion-card>
+        </ng-template>
+        <ng-template swiperSlide>
+          <ion-card
+            class="ion-no-margin ion-margin-bottom"
+            style="height: 100%"
+          >
+            <img
+              alt="Silhouette of mountains"
+              src="https://ionicframework.com/docs/img/demos/card-media.png"
+            />
+            <div class="content-card-channel">
+              <ion-card-header class="ion-no-padding">
+                <ion-card-title
+                  ><ion-button size="small" shape="round"
+                    ><span class="content-text"
+                      >Camisa playera</span
+                    ></ion-button
+                  ></ion-card-title
+                >
+                <div class="attrs">
+                  <div style="width: 100%">
+                    <ion-button size="small" shape="round"
+                      ><ion-icon name="share-social"></ion-icon
+                    ></ion-button>
+                  </div>
+                  <ion-button size="small" shape="round">$39.900</ion-button>
+                </div>
+              </ion-card-header>
+            </div>
+          </ion-card>
+        </ng-template>
+        <ng-template swiperSlide>
+          <ion-card
+            class="ion-no-margin ion-margin-bottom"
+            style="height: 100%"
+          >
+            <img
+              alt="Silhouette of mountains"
+              src="https://ionicframework.com/docs/img/demos/card-media.png"
+            />
+            <div class="content-card-channel">
+              <ion-card-header class="ion-no-padding">
+                <ion-card-title
+                  ><ion-button size="small" shape="round"
+                    ><span class="content-text"
+                      >Mascara de buceo snorkel full face gratis tula go
+                      pro</span
+                    ></ion-button
+                  ></ion-card-title
+                >
+                <div class="attrs">
+                  <div style="width: 100%">
+                    <ion-button size="small" shape="round"
+                      ><ion-icon name="share-social"></ion-icon
+                    ></ion-button>
+                  </div>
+                  <ion-button size="small" shape="round">$96.900</ion-button>
+                </div>
+              </ion-card-header>
+            </div>
+          </ion-card>
+        </ng-template>
+        <ng-template swiperSlide>
+          <ion-card
+            class="ion-no-margin ion-margin-bottom"
+            style="height: 100%"
+          >
+            <img
+              alt="Silhouette of mountains"
+              src="https://ionicframework.com/docs/img/demos/card-media.png"
+            />
+            <div class="content-card-channel">
+              <ion-card-header class="ion-no-padding">
+                <ion-card-title
+                  ><ion-button size="small" shape="round"
+                    ><span class="content-text"
+                      >Bermuda de baño</span
+                    ></ion-button
+                  ></ion-card-title
+                >
+                <div class="attrs">
+                  <div style="width: 100%">
+                    <ion-button size="small" shape="round"
+                      ><ion-icon name="share-social"></ion-icon
+                    ></ion-button>
+                  </div>
+                  <ion-button size="small" shape="round">$45.900</ion-button>
+                </div>
+              </ion-card-header>
+            </div>
           </ion-card>
         </ng-template>
       </swiper>
     </ion-col>
   </ion-row>
+  <ion-list>
+    <ion-item-group>
+      <ion-item-divider class="border-top">
+        <ion-label style="white-space: break-spaces">
+          <h1>Conocenos</h1>
+          Hola!, somos villa tour, una agencia turística dedicada al turismo
+          ecologico, explorador, trabajando desde hace 6 años...<br />
+
+          <ion-button class="ion-no-margin ion-no-padding" fill="clear">
+            Ver más
+          </ion-button>
+        </ion-label>
+      </ion-item-divider>
+    </ion-item-group>
+  </ion-list>
 </ion-content>

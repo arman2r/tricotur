@@ -16,7 +16,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 //@import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
@@ -24,30 +24,27 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
-@import '~swiper/swiper-bundle.css';
+@import "~swiper/swiper-bundle.css";
 .background-opacity {
   --background: transparent;
 }
 
-.radius-border-input{
-  --border-radius:8px;
-  --border-width:1px;
-
+.radius-border-input {
+  --border-radius: 8px;
+  --border-width: 1px;
 }
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
-input:-webkit-autofill:focus
-input:-webkit-autofill,
+input:-webkit-autofill:focus input:-webkit-autofill,
 textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover
-textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  border:none !important;
+  border: none !important;
   -webkit-text-fill-color: inherit !important;
-  -webkit-box-shadow: 0 0 0px 1000px rgba(255,255,255,0) inset;
+  -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0) inset;
   transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -55,8 +52,8 @@ select:-webkit-autofill:focus {
   white-space: break-spaces;
 }
 
-.medium-icon{
-  font-size:3.3rem
+.medium-icon {
+  font-size: 3.3rem;
 }
 
 .white-color {
@@ -64,12 +61,56 @@ select:-webkit-autofill:focus {
   text-shadow: 1px 1px 1px #000000;
 }
 
-.no-shadow{
+.no-shadow {
   box-shadow: none !important;
 }
 
-.product-planes-carousel{
-  .swiper-slide{
-    min-height: 100px;
+.product-planes-carousel {
+  .swiper-wrapper {
+    justify-content: stretch;
+    align-items: stretch;
+  }
+  .swiper-slide {
+    height: auto !important;
+  }
+  ion-card {
+    height: 148px !important;
+    ion-card-header {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      flex-flow: row;
+      justify-content: space-between;
+      ion-card-title {
+        align-self: flex-end;
+        max-width: 47%;
+        ion-button {
+          width: 100%;
+          .content-text {
+            width: 100%;
+            justify-content: start;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+      ion-button {
+        font-size: 0.7rem !important;
+      }
+      .attrs {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: end;
+        align-content: space-between;
+        div {
+          display: flex;
+          justify-content: end;
+        }
+      }
+    }
   }
 }

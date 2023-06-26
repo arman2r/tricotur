@@ -19,8 +19,11 @@ export class MyChannelComponent implements OnInit {
     allowTouchMove: true,
     breakpoints: {
       // when window width is >= 320px
-      280: {
+      200: {
         slidesPerView: 2,
+      },
+      280: {
+        slidesPerView: 2.3,
       },
       // when window width is >= 480px
       330: {
@@ -29,32 +32,38 @@ export class MyChannelComponent implements OnInit {
       420: {
         slidesPerView: 4.5,
       },
-      // when window width is >= 640px
       640: {
-        slidesPerView: 6,
+        slidesPerView: 7,
+      },
+      // when window width is >= 640px
+      768: {
+        slidesPerView: 10,
       }
     }
   };
 
   configSwipperProdAndPlains: SwiperOptions = {
-    spaceBetween: 6,
+    spaceBetween: 4,
     centeredSlides: false,
     allowTouchMove: true,
     breakpoints: {
       // when window width is >= 320px
-      280: {
-        slidesPerView: 2,
+      200: {
+        slidesPerView: 1,
       },
       // when window width is >= 480px
       330: {
-        slidesPerView: 2.5,
+        slidesPerView: 1.1,
       },
       420: {
-        slidesPerView: 4,
+        slidesPerView: 2,
       },
       // when window width is >= 640px
       640: {
-        slidesPerView: 6,
+        slidesPerView: 3,
+      },
+      992: {
+        slidesPerView: 4,
       }
     }
   };
