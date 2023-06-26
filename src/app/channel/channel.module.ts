@@ -13,6 +13,7 @@ import { SwiperModule } from 'swiper/angular';
 import { SocialMediaComponent } from './social-media/social-media.component';
 import { ThemeChannelCreatorComponent } from './theme-channel-creator/theme-channel-creator.component';
 import { ModalSocialMediaAddComponent } from './modal-social-media-add/modal-social-media-add.component';
+import { MyChannelComponent } from './my-channel/my-channel.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,7 @@ import { ModalSocialMediaAddComponent } from './modal-social-media-add/modal-soc
     SwiperModule,
     ReactiveFormsModule
   ],
-  declarations: [ChannelPage, GalleryComponent, RegisterChannelComponent, SocialMediaComponent, ThemeChannelCreatorComponent, ModalSocialMediaAddComponent],
+  declarations: [ChannelPage, GalleryComponent, RegisterChannelComponent, SocialMediaComponent, ThemeChannelCreatorComponent, ModalSocialMediaAddComponent, MyChannelComponent],
   exports: [GalleryComponent, SocialMediaComponent, ThemeChannelCreatorComponent]
 })
 export class ChannelPageModule {}

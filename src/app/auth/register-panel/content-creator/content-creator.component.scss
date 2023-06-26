@@ -14,10 +14,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border:1px solid rgba(0,0,0,.1);
+  border: none;
   border-radius: 30px;
 }
 
 .no-border .swiper-slide{
   border:none !important
+}
+
+.ion-card-content{
+  --padding: 0 0 0 0 !important;
 }

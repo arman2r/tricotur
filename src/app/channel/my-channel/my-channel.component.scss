@@ -1,0 +1,23 @@
+.swiperSliderBanner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  img {
+    max-height: 350px;
+    width: 100%;
+    object-fit: cover;
+    @media (max-width: 767px) {
+      max-height: 320px;
+      width: 100%;
+      object-fit: cover;
+    }
+    @media (max-width: 599px) {
+      max-height: 220px;
+      min-height: 220px;
+      max-width: inherit !important;
+    }
+  }
+}
+
+
