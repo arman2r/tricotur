@@ -45,7 +45,23 @@ select:-webkit-autofill:focus {
   border: none !important;
   -webkit-text-fill-color: inherit !important;
   -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0) inset;
-  transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s
+}
+
+.md .item-fill-outline {
+  line-height: 18px;
+  &::part(native) {
+    height: 40px;
+  }
+  .has-focus input,
+  .has-value input{
+    margin-top: 6px !important;
+  }
+}
+
+.alert-radio-inner.sc-ion-alert-md{
+  width: 12px;
+  height: 12px;
 }
 
 .btn-text-break {

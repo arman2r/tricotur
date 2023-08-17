@@ -35,16 +35,48 @@ export class ContentCreatorComponent implements OnInit {
   printCurrentPosition = async () => {
     const coordinates = await Geolocation.getCurrentPosition();
 
-    console.log('Current position:', coordinates);
+    console.log('Current position:', coordinates.coords.latitude, coordinates.coords.longitude );
 
-    this.locationService.getCurrentLocation(coordinates.coords.latitude, coordinates.coords.longitude).subscribe({
+    this.initMap(coordinates.coords.latitude, coordinates.coords.longitude)
+
+
+    /*this.locationService.getCurrentLocation(coordinates.coords.latitude, coordinates.coords.longitude).subscribe({
       next: (v) => console.log(v),
       error: (e) => console.error(e),
       complete: () => console.info('complete')
-    })
+    })*/
     //this.getCurrentLocation(coordinates.coords.latitude, coordinates.coords.longitude)
 
   };
+
+  initMap(_latitud: number, _longitude: number): void {
+
+    const geocoder = new google.maps.Geocoder();
+
+    this.geocodeLatLng(geocoder, _latitud, _longitude );
+  }
+
+  geocodeLatLng(
+    geocoder: google.maps.Geocoder,
+    _latitud: number,
+    _longitude: number
+  ) {
+    const latlng = {
+      lat: _latitud,
+      lng: _longitude,
+    };
+
+    geocoder
+      .geocode({ location: latlng })
+      .then((response) => {
+        if (response.results[0]) {
+          console.log('resultado aqui', response.results[0])
+        } else {
+          window.alert("No results found");
+        }
+      })
+      .catch((e) => window.alert("Geocoder failed due to: " + e));
+  }
 
   dateTimeUpdated(event: any): void {
     try{

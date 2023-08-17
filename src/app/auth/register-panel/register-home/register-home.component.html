@@ -1,18 +1,66 @@
 <ion-grid [fixed]="true" scrollable>
   <div class="video-bg">
     <video autoplay muted loop id="myVideoBg">
-      <source [src]="['assets/media/waterfall.mp4']" type="video/mp4">
+      <source [src]="['assets/media/waterfall.mp4']" type="video/mp4" />
     </video>
   </div>
-  <ion-row class="ion-justify-content-between ion-align-items-start" style="height: 100vh">
+  <ion-row
+    class="ion-justify-content-between ion-align-items-start bg-down-dg"
+    style="height: 100vh"
+  >
     <ion-col size="5">
-      <ion-img class="ion-margin" [src]="['assets/tricotur-logo.png']"></ion-img>
+      <ion-img
+        class="ion-margin"
+        [src]="['assets/tricotur-logo.png']"
+      ></ion-img>
     </ion-col>
     <ion-col size="12" class="ion-align-self-end">
       <div class="ion-margin">
-        <ion-button expand="block" size="large" class="ion-text-wrap ion-text-start ion-text-capitalize ion-margin-bottom white-color" shape="round" [routerLink]="['/auth/register-panel/register-globetrotter']">Registrarme como trotamundos <ion-icon class="ion-margin-start medium-icon" name="trail-sign"></ion-icon></ion-button>
-        <ion-button expand="block" size="large" class="ion-text-wrap ion-text-start ion-text-capitalize ion-margin-bottom white-color" shape="round" [routerLink]="['/auth/register-panel/register-guide']">Registrarme como guía turístico <ion-icon class="ion-margin-start medium-icon" name="flag"></ion-icon></ion-button>
-        <ion-button expand="block" size="large" class="ion-text-wrap ion-text-start ion-text-capitalize ion-margin-bottom white-color" shape="round" [routerLink]="['/auth/register-panel/register-content-creator']">Registrarme como creador de contenido <ion-icon class="ion-margin-start medium-icon" name="home"></ion-icon></ion-button>
+        <ion-text color="light">
+          <h3>Registrarme como</h3>
+        </ion-text>
+        <ion-button
+          expand="block"
+          size="large"
+          class="ion-text-wrap ion-text-start ion-text-capitalize ion-margin-bottom white-color"
+          shape="round"
+          [routerLink]="['/auth/register-panel/register-globetrotter']"
+        >
+          <ion-row class="ion-justify-content-between" style="width: 100%">
+            <span>trotamundos</span>
+            <ion-icon
+              class="ion-margin-start small-icon"
+              name="trail-sign"
+            ></ion-icon></ion-row
+        ></ion-button>
+        <ion-button
+          expand="block"
+          size="large"
+          class="ion-text-wrap ion-text-start ion-text-capitalize ion-margin-bottom white-color"
+          shape="round"
+          [routerLink]="['/auth/register-panel/register-guide']"
+        >
+          <ion-row class="ion-justify-content-between" style="width: 100%">
+            <span>guía turístico</span>
+            <ion-icon
+              class="ion-margin-start small-icon"
+              name="flag"
+            ></ion-icon> </ion-row
+        ></ion-button>
+        <ion-button
+          expand="block"
+          size="large"
+          class="ion-text-wrap ion-text-start ion-text-capitalize ion-margin-bottom white-color"
+          shape="round"
+          [routerLink]="['/auth/register-panel/register-content-creator']"
+        >
+          <ion-row class="ion-justify-content-between" style="width: 100%"
+            ><span>creador de contenido</span>
+            <ion-icon
+              class="ion-margin-start small-icon"
+              name="home"
+            ></ion-icon> </ion-row
+        ></ion-button>
       </div>
     </ion-col>
   </ion-row>
